@@ -15,7 +15,7 @@
 
 Bước 1: Chọn ngôn ngữ cho Ubuntu Server.  
 ![Bước 1](https://raw.githubusercontent.com/cuonghd97/thuctapmeditech/master/Images/Install%20Ubunu%20SV%2014/Image%201.png)  
-Bước 2: Chọn `Install Ubuntu Server`
+Bước 2: Chọn `Install Ubuntu Server`  
 ![Bước 2](https://raw.github.com/cuonghd97/thuctapmeditech/master/Images/Install%20Ubunu%20SV%2014/Image%202.png)  
 Bước 3: Chọn ngôn ngữ cài đặt.  
 ![Bước 3](https://raw.github.com/cuonghd97/thuctapmeditech/master/Images/Install%20Ubunu%20SV%2014/Image%203.png)  
@@ -79,4 +79,25 @@ Bước 16: Kết thúc cài đặt và chọn Continue để reboot lại máy.
 **Cách chuyển sang tài khoản root**
 
 Sau khi reboot lại máy, các bạn đăng nhập bằng bằng tài khoản đã tạo ở bước 8.  
-![IMG1](https://raw.github.com/cuonghd97/thuctapmeditech/master/Images/Install%20Ubunu%20SV%2014/Image%2029.png)
+![IMG1](https://raw.github.com/cuonghd97/thuctapmeditech/master/Images/Install%20Ubunu%20SV%2014/Image%2029.png)  
+* Từ tài khoản vừa đăng nhập, thực hiện đặt mật khẩu cho tài khoản root bằng câu lệnh sudo passwd root
+* Nhập mật khẩu cho tài khoản root sau đó dùng câu lệnh su root để chuyển sang tài khoản root.
+* Tiến hành nhập mật khẩu cho tài khoản root vừa tạo.  
+
+![Anh](https://raw.github.com/cuonghd97/thuctapmeditech/master/Images/Install%20Ubunu%20SV%2014/Image%2031.png)  
+
+**Cách cấu hình để SSH từ xa** (Chú ý: bạn phải cài dịch vụ OpenSSH Server ở bước 13 )
+
+Đăng nhập bằng tài khoản root và thực hiện câu lệnh
+`vi /etc/ssh/sshd_config`
+
+Sửa `PermitRootLogin` từ `without-password` thành `yes`  
+
+![Anh](https://cloud.githubusercontent.com/assets/18635054/14890287/2f095802-0d8c-11e6-982f-701b00979e64.png)  
+
+Giờ đây bạn đã có thể SSH vào Ubuntu từ bên ngoài:  
+
+![anh](https://camo.githubusercontent.com/71a597797f0c2a8112b8d217f7b16928fd067807/687474703a2f2f696d6167652e70726e747363722e636f6d2f696d6167652f62326330663533643930643234333730613162663562626637376337306562612e706e67)  
+
+![anh](https://raw.github.com/cuonghd97/thuctapmeditech/master/Images/Install%20Ubunu%20SV%2014/Image%2032.png)
+
