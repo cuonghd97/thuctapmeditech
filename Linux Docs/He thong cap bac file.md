@@ -4,7 +4,7 @@
 `\boot` Nó bao gồm các file cho quá trình khởi động cho Linux. Như là vnlinuz(kernel)...ntoskrnl Initrd(INITial Ram Disk) và GRUB (GRand Unified Boot Loader)... boot.ini, ntldr.  
 `\etc` Nó chứa tất cả các file config như /etc/passwd - Thông tin người dùng. /etc/resolv.conf - DNS ưu tiên. /etc/hdcpd.conf - DHCP Server.  
 `\usr` Các phần mềm được đặt trong thư mục này.  
-`\opt` Thư mục tùy chọn chu `\usr`. Nó chứa các phần mềm từ bên tứ 3.  
+`\opt` Thư mục như `\usr`. Nó chứa các phần mềm từ bên tứ 3.  
 `\bin` Nó chứa tất cả các câu lệnh được sử dụng bởi tất cả các người dùng (file nhị phân).  
 `\sbin` Nó chứa các câu lệnh được sử dụng bởi Super user.  
 `\dev` Nó gồm các file về thiết bị như /dev/had - cho ổ cứng, /dev/cd rom - cho ổ đĩa cd.  
