@@ -10,3 +10,16 @@
 Sau khi quá trình hoàn tất ta kiểm tra lại bằng cách ping đến địa chỉ ip của máy ảo trên máy thật ta được  
 ![Ảnh5](https://raw.githubusercontent.com/cuonghd97/thuctapmeditech/master/VMWare%20and%20Linux/Images/Image%205.png)  
 > Lưu ý: địa chỉ ip bạn có thể đặt theo ý muốn của mình!!!
+# Đặt IP tĩnh cho CentOS 
+Chạy lệnh sau  
+`sudo vi /etc/sysconfig/network-scripts/ifcfg-INTERFACENAME`  
+INTERFACENAME là tên interface của bạn  
+Sửa thành như sau:  
+BOOTPROTO="dhcp" -> BOOTPROTO="static"  
+Thêm các dòng sau vào cuối file:  
+IPADDR=192.168.1.200
+NETMASK=255.255.255.0
+GATEWAY=192.168.1.1
+DNS1=8.8.4.4
+DNS1=8.8.8.8  
+Lưu lại và chạy lệnh `systemctl restart network` để hoàn tất
