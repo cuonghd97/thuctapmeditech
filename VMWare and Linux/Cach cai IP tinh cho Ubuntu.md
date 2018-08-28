@@ -17,9 +17,9 @@ INTERFACENAME là tên interface của bạn
 Sửa thành như sau:  
 BOOTPROTO="dhcp" -> BOOTPROTO="static"  
 Thêm các dòng sau vào cuối file:  
-IPADDR=192.168.1.200
-NETMASK=255.255.255.0
-GATEWAY=192.168.1.1
-DNS1=8.8.4.4
+IPADDR=192.168.1.200  
+NETMASK=255.255.255.0  
+GATEWAY=192.168.1.1  
+DNS1=8.8.4.4  
 DNS1=8.8.8.8  
 Lưu lại và chạy lệnh `systemctl restart network` để hoàn tất
