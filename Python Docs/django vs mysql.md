@@ -20,4 +20,4 @@ Trong đó `NAME` là tên database bạn muốn django thao tác với và data
 `HOST` mặc định là `127.0.0.1` hoặc `localhost`  
 `PORT` port mặc định là 334  
 sau khi chạy lệnh `$ python3 manage.py runserver` django đã tạo ra các bảng trong database như sau  
-![anh]](https://raw.githubusercontent.com/cuonghd97/thuctapmeditech/master/Python%20Docs/Images/Screenshot%20from%202018-08-31%2019-24-41.png)
+![anh](https://raw.githubusercontent.com/cuonghd97/thuctapmeditech/master/Python%20Docs/Images/Screenshot%20from%202018-08-31%2019-24-41.png)
