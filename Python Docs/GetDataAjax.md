@@ -10,7 +10,8 @@ Tại file `views.py` ta có hàm lấy dữ liệu về và trả về dữ li�
     datas = {"data": data}
     json_datas = json.loads(json.dumps(datas))
     # json = serializers.serialize('json', table_data)
-    return JsonResponse(json_datas)```  
+    return JsonResponse(json_datas)
+```  
 Tại file javascript ta có hàm get dữ liệu như sau:  
 ```$(document).ready(function () {
 
