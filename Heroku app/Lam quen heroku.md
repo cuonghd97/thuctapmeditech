@@ -2,15 +2,15 @@
 
 Heroku là dịch vụ cung cấp máy chủ miễn phí cho người dùng. Với cái giá phải trả 0$ cùng với vô vàn các addons hỗ trợ cực kỳ hữu ích thì đấy được coi là một trong những dịch vụ hấp dẫn khó cưỡng. Dù miễn phí nhưng nó có thể so sanh với các server trả phí.  
 Heroku hỗ trợ nhiều ngôn ngũ lập trình:
-> NodeJS
-> Ruby
-> Python
-> PHP
-> JAVA
-> Scala
-> Clojure
-> Go
-> Kotlin
+> NodeJS  
+> Ruby  
+> Python  
+> PHP  
+> JAVA  
+> Scala  
+> Clojure  
+> Go  
+> Kotlin  
 ## Hướng dẫn deploy Django project lên Heroku  
 yêu cầu phải cài django trên máy  
 Heroku đã cung cấp cho ta một template django có sẵn các config để dễ dàng deploy lên server ta chỉ cần chạy lệnh sau:  
