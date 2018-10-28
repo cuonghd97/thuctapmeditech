@@ -42,4 +42,6 @@ Sau khi đăng nhập bạn truy cập vào database để kiểm tra kết qu�
 ## Thay đổi múi giờ trong laravel
 Tại file `config\app.php` ta thay đổi múi giờ về giờ việt nam chẳng hạn:  
 ` 'timezone' => 'Asia/Ho_Chi_Minh',`  
-danh sách về các múi giờ bạn có thể xem thêm tại [đây](http://php.net/manual/en/timezones.php)
+danh sách về các múi giờ bạn có thể xem thêm tại [đây](http://php.net/manual/en/timezones.php)  
+## Lỗi `No application encryption key has been specified`
+chạy lệnh `php artisan key:generate`  
