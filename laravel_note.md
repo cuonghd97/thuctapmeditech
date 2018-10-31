@@ -45,3 +45,9 @@ Tại file `config\app.php` ta thay đổi múi giờ về giờ việt nam ch�
 danh sách về các múi giờ bạn có thể xem thêm tại [đây](http://php.net/manual/en/timezones.php)  
 ## Lỗi `No application encryption key has been specified`
 chạy lệnh `php artisan key:generate`  
+## Sau khi clone từ github về ta cần chạy các lệnh sau
+`composer install`  
+`composer update`  
+Để cài lại composer vào project  
+Chạy thêm lệnh  
+`touch .env` và copy toàn bộ nội dung từ file .env.example vào và sửa lại để kết nối với database
