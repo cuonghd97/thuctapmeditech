@@ -1,5 +1,13 @@
 Kết nối với DB mysql:  
 `mysql -u fooUser -p -h 44.55.66.77`  
+## Check login trng django dùng decorators
+thêm thư viện sau `from django.contrib.auth.mixins import LoginRequiredMixin`  
+`from django.contrib.auth import decorators`  
+đói với hàm chỉ cần thêm `@decorators.login_required(login_url='/login/')`  
+login_url có thể thay đổi  
+đối với class view thì phải kết thừa `LoginRequiredMixin`  
+và thêm dòng login_url='/login/'  
+để khi chưa đăng nhập sẽ chuyển sang đường dẫn /login  
 ## Tạo UUID trong project laravel:  
 UUID: Universally Unique IDentifier  
 Mục đích của UUID là:  
