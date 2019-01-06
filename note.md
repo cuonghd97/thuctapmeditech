@@ -27,3 +27,5 @@ Tạo đối tượng phiên bản 4 UUID (ngẫu nhiên):
 `$uuid4 = Uuid::uuid4();`  ví dụ: `25769c6c-d34d-4bfe-ba98-e0ee856f3e7a`  
 
 Bạn có thể xem chi tiết tại [đây](https://github.com/ramsey/uuid)  
+## Quản lý file trong django
+[chi tiết tại đây](https://docs.djangoproject.com/en/2.1/topics/files/)
