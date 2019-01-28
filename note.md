@@ -29,3 +29,12 @@ Tạo đối tượng phiên bản 4 UUID (ngẫu nhiên):
 Bạn có thể xem chi tiết tại [đây](https://github.com/ramsey/uuid)  
 ## Quản lý file trong django
 [chi tiết tại đây](https://docs.djangoproject.com/en/2.1/topics/files/)
+
+## Lưu ý khi dùng hàm forEach trong JS
+Đối tượng không dùng được `forEach`, muốn dùng được ta viết cú pháp như sau
+```
+Object.keys(a).forEach(function (key){
+    console.log(a[key]);
+});
+```  
+trong đó `a` là đối t
