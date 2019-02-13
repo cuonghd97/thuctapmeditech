@@ -104,5 +104,100 @@ class animal {
   }
 }
 
-var mouse1 = new animal('cat', 'yellow', 1);
+var mouse1 = new animal("cat", "yellow", 1);
 console.log(mouse1);
+
+console.log("-----------------------------------");
+
+// Node module system
+function Mouse(color) {
+  this.color = color;
+  this.isDead = false;
+}
+
+Mouse.prototype.die = function() {
+  this.isDead = true;
+};
+
+function Cat() {
+  this.stomatch = [];
+}
+
+Cat.prototype.eat = function(mouse) {
+  this.stomatch.push(mouse);
+  mouse.die();
+};
+
+var mouse1 = new Mouse("black");
+var mouse2 = new Mouse("yellow");
+
+console.log(mouse1);
+console.log(mouse2);
+
+var cat = new Cat();
+cat.eat(mouse1);
+
+console.log(cat);
+
+console.log(mouse1);
+
+// ở ví dụ trên ta có thể chuyển đối tượng mouse và prototype của Mouse sang một file .js khác
+// Export module Mouse để sử dụng ta viết module.exports = <tên module> ở cuối file mới
+// Để sử dụng đươc module mouse ở file khác ta viết như sau: var mouse = module.require('đường dẫn đến module') và ta có thể sử dụng đối tượng Mouse
+
+console.log("-----------------------------------");
+
+// Sync và Async
+// Sync (đồng bộ) các hàm sẽ được chạy lần lượt
+// Async (bất đồng bộ)
+// Callback hell
+// function main(){
+// thuc_day(function(){
+// danh_rang(function(){
+// di_an_sang(function(){
+// console.log('OMG!!!!');
+// });
+// });
+// });
+// }
+
+// Đây là ví dụ "nhỏ" về callback hell
+// Để giảm bớt callback hell ta có thể dùng promise
+
+// Async await
+
+const axios = require("axios");
+
+// 1.
+async function fetchUrls(urls) {
+  const results = [];
+  for (const url of urls) {
+    const res = await axios.get(url);
+    results.push(res);
+  }
+  return results;
+}
+
+// 2.
+async function fetchUrlsParallel(urls) {
+  const results = await Promise.all(
+    urls.map(function(url) {
+      return axios.get(url);
+    })
+  );
+  return results;
+}
+
+const urls = [
+  "https://jsonplaceholder.typicode.com/todos/1",
+  "https://jsonplaceholder.typicode.com/todos/2",
+  "https://jsonplaceholder.typicode.com/todos/3"
+];
+
+fetchUrls(urls).then(() => console.log("Done"));
+fetchUrlsParallel(urls).then(() => console.log("Done 2"));
+
+
+// Sau khi chạy 2 hàm kết quả thu được là hàm số 2 chạy nhanh hơn vì việc get dữ liệu được thực hiện cùng một lúc(bất đồng bộ) còn ở hàm số 1 việc get url được thực hiện lần lượt từng url nên chậm hơn
+
+// -------------------------------------
