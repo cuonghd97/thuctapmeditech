@@ -55,6 +55,92 @@ Nếu đối tượng tồn tại sẽ phản hồi `200 OK` ngược lại tr�
 ### UpdateModelMixin
 Cung cấp phương thức .update(request, *args, **kwargs) cập nhật và lưu lại một đối tượng model  
 Nếu cập nhật thành công sẽ phản hồi `200 OK`, ngược lại, dữ liệu không hợp lệ sẽ trả về `400 Bad request`  
+### DestroyModelMixin
+Cung cấp phương thức .destroy(request, *args, **kwargs) sẽ xóa một đối tượng model  
+Nếu xóa thành công sẽ phản hồi `204 No content` ngược lại sẽ phản hồi `404 Not found`  
+
+## Concrete View Classes
+
+### CreateAPIView
+Chỉ dùng cho việc tạo  
+Xử lý phương thức `post`  
+Kế thừa: GenericAPIView, CreateModelMixin  
+### ListAPIView
+Chỉ đọc tập hợp các đối tượng model  
+Xử lý phương thức `get`  
+Kế thừa: GenericAPIView, ListModelMixin  
+### RetriveAPIView
+Chỉ dùng cho việc đọc một đối tượng model  
+Xử lý phương thức `get`  
+Kế thừa: GenericAPIView, RetrieveModelMixin  
+### DestroyAPIView
+Chỉ xóa một đối tượng model  
+Xử lý phương thức `delete`  
+Kế thừa: GenericAPIView, DestroyModelMixin  
+### UpdateAPIView 
+Chỉ cập nhật một đối tượng model  
+Xử lý phương thức `put` và `patch`  
+Kế thừa: GenericAPIView, UpdateModelMixin  
+### ListCreateAPIView
+Đọc và tạo tập hợp đối tượng model  
+Xử lý phương thức `get` và `post`  
+Kế thừa: GenericAPIView, ListModelMixin, CreateModelMixin  
+### RetrieveUpdateAPIView 
+Đọc và cập nhật mối đối tượng model  
+Xử lý phương thức: `get`, `put` và `patch`  
+Kế thừa: GeneriAPIView, RetrieveModelMixin, UpdateModelMixin  
+### RetrieveDestroyAPIView
+Đọc và xóa một đối tượng model  
+Xử lý phương thức: `get`, `delete`  
+Kế thừa: GenericAPIView, RetrieveModelMixin, DestroyModelMixin  
+### RetrieveUpdateDestroyAPIView
+Đọc, tạo và xóa một đối tượng model  
+xử lý phương thức: `get`, `put`, `patch` và `delete`  
+Kế thừa: GenericAPIView, RetrieveModelMixin, UpdateModelMixin, DestroyModelMixin  
+
+
+## Django rest_framework_simplejwt
+Json Web Token (JWT) là một tiêu chuẩn mở (RFC 7519) xác định một cách nhỏ gọn và khép kín để truyền thông tin an toàn giữa các bên dưới dạng đối tượng JSON.  
+Cấu trúc của JWT:  
+Gồm 3 phần được tách nhau bởi dấu (.):  
++ Header
++ Payload
++ Signature
+
+Dó đó JWT có dạng như sau: xxxxxx.yyyyyy.zzzzzz  
+ví dụ: `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTUxODYyNzg1LCJqdGkiOiJiMTcxNjY5MTVhYWQ0NWExOWY0MmE2ZGJhYTViYmE5ZSIsInVzZXJfaWQiOjF9.kz0oXkJYS4HdBfaHUft9JIX04D1K0s6sCqf0zJ0qnpk`  
+
+### Header
+Header thường bao gồm hai phần: loại mã thông báo: JWT và thuật toán mã hóa được sử dụng, chẳng hạn như HMAC SHA256 hoặc RSA.  
+ví dụ:   
+```
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}```  
+Sau đó chuỗi Json này được mã hóa `Base64` để tạo thành phần header.  
+
+### Payload
+Payload chứa các claim, claim là các biểu thức về một thực thể(chẳng hạn user). Có 3 loại claim thường gặp:  
++ Reserved: Đây là một số metadata được định nghĩa trước, trong đó một số metadata là bắt buộc, số còn lại nên tuân theo để JWT hợp lệ và đầy đủ thông tin  
++ Public: Chúng có thể được xác định theo ý muốn của người sử dụng JWT  
++ Private claims: Claim tự định nghĩa không được trùng với Reserved claim và public claim.  
+Ví dụ về payload:  
+```
+{
+  "sub": "1234567890",
+  "name": "John Doe",
+  "admin": true
+}
+```  
+Sau đó payload được mã hóa `base64` tạo nên phần thứ 2 của JWT
+
+### Signature
+Để tạo `signature` cần phải mã hóa `header` và `payload` và một thuật toán bí mật.
+
+> Ví dụ về jwt trong bài toán xác thực. Trong việc xác thực, khi một user đăng nhập thành công (Browser sẽ post username và password lên server) server sẽ trả về 1 chuỗi JWT về Browser và được lưu trong `localStorage` hoặc `cookies`)  
+Bất cứ khi nào User muốn truy cập vào route mà chỉ có user đã đăng nhập mới có phép, browser sẽ gửi token JWT này trong Header Authorization, Bearer schema của request gửi đi.  
+`Authorization: Bearer "<token>"`
 
 
 
