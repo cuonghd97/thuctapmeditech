@@ -41,6 +41,21 @@ xem project chi tiết tại đây
 #### Viết api bằng class base view
 Cách viết này giúp code trông sạch hơn và có thể sử dụng lại một số hàm phổ biến
 
+## Mixin
+Mixin cung cấp luôn các phương thức, như là: .get(), .post(). 
+### ListModelMixin
+Phương thức .list(request, *args, **kwargs) thực hiện liệt kê 1 queryset.  
+Nếu queryset tồn tại sẽ trả về phản hồi `200 OK`, dữ liệu trả về có thể phân trang.  
+### CreateModelMixin
+Phương thức .create(request, *args, **kwargs) sẽ tạo một bản ghi trong `models`  
+Nếu đối tượng được tạo thành công sẽ trả về phản hồi `201 Created`, nếu dữ liệu yêu cầu không hợp lệ trả về `400 bad request`
+### RetrieveModelMixin
+Cung cấp phương thức .retrieve(request, *args, **kwargs) trả về một đối tượng model.  
+Nếu đối tượng tồn tại sẽ phản hồi `200 OK` ngược lại trả về `404 Not Found`  
+### UpdateModelMixin
+Cung cấp phương thức .update(request, *args, **kwargs) cập nhật và lưu lại một đối tượng model  
+Nếu cập nhật thành công sẽ phản hồi `200 OK`, ngược lại, dữ liệu không hợp lệ sẽ trả về `400 Bad request`  
+
 
 
 
