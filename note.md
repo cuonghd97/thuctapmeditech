@@ -38,3 +38,25 @@ Object.keys(a).forEach(function (key){
 });
 ```  
 trong đó `a` là đối t
+# Configure cho Visual Studio Code
+```
+{
+    "files.autoSave": "afterDelay",
+    "editor.fontFamily": "'Source Code Pro Semibold'",
+    "editor.wordWrap": "on",
+    "workbench.colorTheme": "Dracula",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.lineNumbers": "relative",
+    "editor.renderLineHighlight": "all",
+    "editor.rulers": [80],
+    "workbench.activityBar.visible": false,
+    "window.menuBarVisibility": "toggle",
+    "files.trimTrailingWhitespace": true,
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+}
+```
